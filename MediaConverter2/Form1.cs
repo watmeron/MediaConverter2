@@ -41,8 +41,14 @@ namespace MediaConverter2
             {
                 string fileName = files[i];
                 //Text += fileName + "\r\n";
-                processingListBox.Items.Add(fileName);
+                processingListBox.Items.Add(
+                    System.IO.Path.GetFileName(fileName) );
             }
+        }
+
+        private void processingListBox_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
         }
     }
 }

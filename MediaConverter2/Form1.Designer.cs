@@ -87,6 +87,7 @@
             resources.ApplyResources(this.processingListBox, "processingListBox");
             this.processingListBox.Name = "processingListBox";
             this.processingListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.processingListBox_DragDrop);
+            this.processingListBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.processingListBox_DragEnter);
             // 
             // finishedListBox
             // 
@@ -96,6 +97,7 @@
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.finishedListBox);
