@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.canselButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
@@ -37,7 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.processingListBox = new System.Windows.Forms.ListBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.finishedListBox = new System.Windows.Forms.ListBox();
+            this.OptionButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // canselButton
@@ -83,11 +90,34 @@
             // processingListBox
             // 
             this.processingListBox.AllowDrop = true;
+            this.processingListBox.ContextMenuStrip = this.contextMenuStrip1;
             this.processingListBox.FormattingEnabled = true;
             resources.ApplyResources(this.processingListBox, "processingListBox");
             this.processingListBox.Name = "processingListBox";
+            this.processingListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.processingListBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.processingListBox_DragDrop);
             this.processingListBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.processingListBox_DragEnter);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem,
+            this.selectAllToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            this.contextMenuStrip1.Opened += new System.EventHandler(this.contextMenuStrip1_Opened);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            resources.ApplyResources(this.deleteToolStripMenuItem, "deleteToolStripMenuItem");
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
+            // 
+            // selectAllToolStripMenuItem
+            // 
+            this.selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
+            resources.ApplyResources(this.selectAllToolStripMenuItem, "selectAllToolStripMenuItem");
+            this.selectAllToolStripMenuItem.Click += new System.EventHandler(this.SelectAllToolStripMenuItem_Click);
             // 
             // finishedListBox
             // 
@@ -95,11 +125,25 @@
             resources.ApplyResources(this.finishedListBox, "finishedListBox");
             this.finishedListBox.Name = "finishedListBox";
             // 
+            // OptionButton
+            // 
+            resources.ApplyResources(this.OptionButton, "OptionButton");
+            this.OptionButton.Name = "OptionButton";
+            this.OptionButton.UseVisualStyleBackColor = true;
+            this.OptionButton.Click += new System.EventHandler(this.OptionButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.OptionButton);
             this.Controls.Add(this.finishedListBox);
             this.Controls.Add(this.processingListBox);
             this.Controls.Add(this.label3);
@@ -110,6 +154,7 @@
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.canselButton);
             this.Name = "Form1";
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,6 +171,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox processingListBox;
         private System.Windows.Forms.ListBox finishedListBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
+        private System.Windows.Forms.Button OptionButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
